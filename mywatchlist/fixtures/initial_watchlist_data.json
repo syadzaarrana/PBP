@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":1,
+        "fields":{
+            "watched":"Watched",
+            "title":"Top Gun: Maverick",
+            "rating":"4.9",
+            "release_date":"May 27, 2022",
+            "review":"Top Gun: Maverick pulls off a feat even trickier than a 4G inverted dive, delivering a long-belated sequel that surpasses its predecessor in wildly entertaining style."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":2,
+        "fields":{
+            "watched":"Watched",
+            "title":"No Time to Die",
+            "rating":"4.4",
+            "release_date":"September 30, 2021",
+            "review":"It isn't the sleekest or most daring 007 adventure, but No Time to Die concludes Daniel Craig's franchise tenure in satisfying style."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":3,
+        "fields":{
+            "watched":"Not Watched",
+            "title":"Soul",
+            "rating":"4.4",
+            "release_date":"October 11, 2020",
+            "review":"A film as beautiful to contemplate as it is to behold, Soul proves Pixar's power to deliver outstanding all-ages entertainment remains undimmed."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":4,
+        "fields":{
+            "watched":"Watched",
+            "title":"Interstellar",
+            "rating":"4.3",
+            "release_date":"November 6, 2014",
+            "review":"Interstellar represents more of the thrilling, thought-provoking, and visually resplendent filmmaking moviegoers have come to expect from writer-director Christopher Nolan, even if its intellectual reach somewhat exceeds its grasp."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":5,
+        "fields":{
+            "watched":"Not Watched",
+            "title":"Avatar",
+            "rating":"4.1",
+            "release_date":"December 17, 2009",
+            "review":"It might be more impressive on a technical level than as a piece of storytelling, but Avatar reaffirms James Cameron's singular gift for imaginative, absorbing filmmaking."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":6,
+        "fields":{
+            "watched":"Watched",
+            "title":"The Sound of Music",
+            "rating":"4.5",
+            "release_date":"April 1, 1965",
+            "review":"Unapologetically sweet and maybe even a little corny, The Sound of Music will win over all but the most cynical filmgoers with its classic songs and irresistible warmth."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":7,
+        "fields":{
+            "watched":"Not Watched",
+            "title":"Star Wars: The Last Jedi (Episode VIII)",
+            "rating":"2.1",
+            "release_date":"December 13, 2017",
+            "review":"Star Wars: The Last Jedi honors the saga's rich legacy while adding some surprising twists -- and delivering all the emotion-rich action fans could hope for."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":8,
+        "fields":{
+            "watched":"Not Watched",
+            "title":"The Batman",
+            "rating":"4.3",
+            "release_date":"March 2, 2022",
+            "review":"A grim, gritty, and gripping super-noir, The Batman ranks among the Dark Knight's bleakest -- and most thrillingly ambitious -- live-action outings."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":9,
+        "fields":{
+            "watched":"Watched",
+            "title":"Enola Holmes",
+            "rating":"3.5",
+            "release_date":"September 23, 2020",
+            "review":"Enola Holmes brings a breath of fresh air to Baker Street -- and leaves plenty of room for Millie Bobby Brown to put her effervescent stamp on a franchise in waiting."
+        }
+    },
+    {
+        "model":"mywatchlist.MyWatchList",
+        "pk":10,
+        "fields":{
+            "watched":"Watched",
+            "title":"The Man from U.N.C.L.E.",
+            "rating":"3.6",
+            "release_date":"August 26, 2015",
+            "review":"The Man from U.N.C.L.E. tries to distract from an unremarkable story with charismatic stars and fizzy set pieces, adding up to an uneven action thriller with just enough style to overcome its lack of substance."
+        }
+    }
+]
