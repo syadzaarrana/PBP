@@ -7,7 +7,7 @@
 1. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py,
    models.py, dan berkas html;<br/>
    Jawab:<br/>
-   ![chart](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/flowchart.png?raw=true)<br/>
+   ![chart](https://github.com/syadzaarrana/Tugas-PBP/blob/main/flowchart.png?raw=true)<br/>
    Bagan ini menggambarkan alur pemrosesan *client http request*. *Request* akan diteruskan oleh `urls.py` ke `views.py`, kemudian fungsi pada `views.py` akan memrosesnya dengan menggunakan template HTML dan objek dari `models.py`. Implementasi hubungan `urls.py`, `views.py`, `models.py`, dan template HTML dijelaskan lebih lanjut pada jawaban pertanyaan nomor 3.
 
 2. Jelaskan kenapa menggunakan *virtual environment*? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan *virtual environment*?<br/>

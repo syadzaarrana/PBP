@@ -23,9 +23,9 @@
    Pada *template source code* yang diberikan, semua *dependencies dan dpl.yml* sudah dibuat dan konfigurasi `settings.py` sudah disesuaikan, sehingga langkah *deployment* aplikasi ke heroku yang masih perlu dilakukan hanyalah memodifikasi sedikit *procfile* untuk me-*load* data awal dan memasukkan nama aplikasi yang sudah dibuat dan *API key* akun heroku ke *repository secret* (simpan juga keduanya pada suatu file teks). Kemudian *deployment* yang sebelumnya gagal pada bagian *Actions* di *repository* dijalankan ulang.
 
 #### Screenshot Postman
-![postman-1](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/1.png?raw=true)<br/>
-![postman-2](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/2.png?raw=true)<br/>
-![postman-3](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/3.png?raw=true)<br/>
-![postman-4](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/4.png?raw=true)<br/>
-![postman-5](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/5.png?raw=true)<br/>
-![postman-6](https://github.com/syadzaarrana/PBP-Tugas-2/blob/main/postman/6.png?raw=true)<br/>
+![postman-1](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/1.png?raw=true)<br/>
+![postman-2](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/2.png?raw=true)<br/>
+![postman-3](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/3.png?raw=true)<br/>
+![postman-4](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/4.png?raw=true)<br/>
+![postman-5](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/5.png?raw=true)<br/>
+![postman-6](https://github.com/syadzaarrana/Tugas-PBP/blob/main/postman/6.png?raw=true)<br/>
