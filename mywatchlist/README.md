@@ -1,6 +1,6 @@
 # Tugas 3 PBP - Semester Ganjil 2022/2023
 
-#### Link aplikasi heroku:
+#### Link aplikasi heroku: https://pbp-tugas-deploy.herokuapp.com/mywatchlist/
 
 #### Jawaban Pertanyaan
 

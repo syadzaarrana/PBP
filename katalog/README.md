@@ -1,6 +1,6 @@
 # Tugas 2 PBP - Semester Ganjil 2022/2023
 
-#### Link aplikasi heroku: http://tugas2-pbp-syadza.herokuapp.com/katalog/
+#### Link aplikasi heroku: https://pbp-tugas-deploy.herokuapp.com/katalog/
 
 #### Jawaban Pertanyaan
 
