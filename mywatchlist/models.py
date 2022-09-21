@@ -5,7 +5,7 @@ class MyWatchList(models.Model):
     watched = models.CharField(max_length=11)
     title = models.CharField(max_length=50)
     rating = models.FloatField()
-    release_date = models.CharField(max_length=17)
+    release_date = models.CharField(max_length=25)
     review = models.TextField()
 
     # Ratings & review from rottentomatoes.com (audience score & critics consensus)
