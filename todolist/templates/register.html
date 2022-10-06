@@ -1,34 +1,43 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
 {% block meta %}
-<title>Account Registration</title>
+<title>Register</title>
 {% endblock meta %}
 
-{% block content %}  
+{% block content %}
 
-<div class = "register">
-    
-    <h1>Registration Form</h1>  
-
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table> 
-                {{ form.as_p }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Register"/></td>  
-                </tr>  
-            </table>  
-        </form>
-
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
-
-</div>  
+<section class = "full-width d-flex justify-content-center align-items-center">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="card bg-light w-75" style="border-radius: 2rem;">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                <img src="../static/images/login-illustration.png" class="img-fluid rounded m-4" alt="login-illustration">
+                </div>
+                <div class="col-lg-7">
+                    <div class="card-body mx-3" style="font-size: small;">
+                        <h1 class="card-title mb-5 mt-3">Register</h1>
+                        <form class="ml-3" method="POST" action="">
+                            {% csrf_token %}
+                            
+                            {{form|crispy}}
+                            
+                            <button type="submit" class="btn btn-outline-primary w-100 mb-3" value="register">Register</button>
+                            <p>Already have an account? <a href="{% url 'todolist:login' %}">Login</a></p>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}

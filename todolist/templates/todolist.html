@@ -1,72 +1,62 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block meta %}
+<title>To-do List</title>
+{% endblock meta %}
+
 {% block content %}
-<h2>Welcome, {{ request.user.username }}!</h2>
-<br/><br/>
 
-<button><a href="{% url 'todolist:create_task' %}" style="text-decoration:none ;">New Task</a></button>
-{% if messages %}  
-    {% for message in messages %}  
-    <small style="display: ismallne;">{{ message }}</small>  
-    {% endfor %}  
-{% endif %}
-<br/><br/>
-
-{% if my_todolist %}
-
-    <table border="1" style=display:inline-block ;">
-        <tr>
-            <th>Task</th>
-            <th>Task Description</th>
-            <th>Date Created</th>
-            <th>Status</th>
-        </tr>
-        {% for todo in my_todolist %}
-        <tr>
-            <td style="padding:5px ;" width="250px">{{ todo.title }}</td>
-            <td style="padding:5px ;" width="500px">{{ todo.description }}</td>
-            <td style="padding:5px ;" width="100px">{{ todo.date }}</td>
-            {% if todo.is_finished %}
-                <td style="padding:5px ;" width="100px">Finished</td>
-            {% else %}
-                <td style="padding:5px ;" width="100px">Not Finished</td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </table>
-
-    <table style="display: inline-block;">
-        <tr>
-            <th style="padding:12px ;"></th>
-        </tr>
-        {% for todo in my_todolist %}
-        <tr>
-            {% if not todo.is_finished %}
-                <td style="padding:5px ;"><a href="{% url 'todolist:complete_task' todo.id %}" style="text-decoration:none ;">&#x2610</a></td>
-            {% else %}
-                <td style="padding:5px ;"><a href="{% url 'todolist:complete_task' todo.id %}" style="text-decoration:none ;">&#x2611</a></td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </table>
-
-    <table style="display: inline-block;">
-        <tr>
-            <th style="padding:13px ;"></th>
-        </tr>
-        {% for todo in my_todolist %}
-        <tr>
-            <td style="padding:5px ;"><a href="{% url 'todolist:delete_task' todo.id %}" style="text-decoration:none ;">&#x1F5D1</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-
-{% else %}
-    <br/><h5>You don't have any to-do list yet.</h5>
-
-{% endif %}
-<br/><br/>
-
-<button><a href="{% url 'todolist:logout' %}" style="text-decoration:none ;">Logout</a></button>
+<section class = "full-width d-flex justify-content-center align-items-center">
+    <nav class="navbar fixed-top">
+        <div class="container-fluid" style="padding:3vh ;">
+            <span class="navbar-brand h1">Welcome, {{ request.user.username }}!</span>
+            <form action="{% url 'todolist:logout' %}" method="GET">
+                <button type="submit" class="btn btn-danger" value="logout">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <form action="{% url 'todolist:create_task' %}" method="GET">
+            <button type="submit" class="btn btn-primary" value="create_task">New Task</button>
+        </form>
+        <br/>
+        <div class="row">
+            {% for todo in my_todolist %}
+            <div class="col-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ todo.title }}</h5>
+                        <p class="card-text">{{ todo.description }}</p>
+                        <footer class="text-muted" style="font-size: small;">{{ todo.date }}</footer>
+                        <br/>
+                        <div class="btn-group" role="group">
+                            {% if todo.is_finished %}
+                            <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" value="complete_task">Unmark Done</button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
+                                <button type="submit" class="btn btn-outline-primary btn-sm" value="complete_task">Mark Done</button>
+                            </form>
+                            {% endif %}
+                            
+                            <form action="{% url 'todolist:delete_task' todo.id %}" method="GET">
+                                <button type="submit" class="btn btn-outline-danger btn-sm" value="delete_task">Delete</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock content %}
