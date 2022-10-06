@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.full-width {
+    min-height: 100vh;
+    background-color: #fef4ee;
+}
+
+.navbar {
+    background-color: #fcc8ab;
+}
