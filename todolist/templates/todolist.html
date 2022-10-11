@@ -14,43 +14,42 @@
 
 <section class = "full-width d-flex justify-content-center align-items-start">
     <nav class="navbar fixed-top">
-        <div class="container-fluid" style="padding:3vh ;">
-            <span class="navbar-brand h1">Welcome, {{ request.user.username }}!</span>
+        <div class="container-fluid" style="padding:2vh ; margin-left:17px ; margin-right:15px ;">
+            <span class="navbar-brand" style="color:#303c6c ; font-weight: 700; font-size: xx-large;">Welcome, {{ request.user.username }}!</span>
             <form action="{% url 'todolist:logout' %}" method="GET">
                 <button type="submit" class="btn btn-danger" value="logout">Logout</button>
             </form>
         </div>
     </nav>
-    <div class="container mt-5">
+    <div class="container mt-5" style="min-width:97vw ;">
         <form action="{% url 'todolist:create_task' %}" method="GET">
-            <button type="submit" class="btn btn-primary" value="create_task">New Task</button>
+            <button type="submit" class="btn btn-outline-primary" value="create_task">New Task</button>
         </form>
         <br/>
         <div class="row">
             {% for todo in my_todolist %}
             <div class="col-4">
-                <div class="card mb-4">
+                <div class="card text-white border-0 mb-4" id="tasks">
                     <div class="card-body">
                         <h5 class="card-title">{{ todo.title }}</h5>
                         <p class="card-text">{{ todo.description }}</p>
-                        <footer class="text-muted" style="font-size: small;">{{ todo.date }}</footer>
+
                         <br/>
-                        <div class="btn-group" role="group">
-                            {% if todo.is_finished %}
-                            <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
-                                <button type="submit" class="btn btn-outline-primary btn-sm" value="complete_task">Unmark Done</button>
-                            </form>
-                            {% else %}
-                            <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
-                                <button type="submit" class="btn btn-outline-primary btn-sm" value="complete_task">Mark Done</button>
-                            </form>
-                            {% endif %}
-                            
-                            <form action="{% url 'todolist:delete_task' todo.id %}" method="GET">
-                                <button type="submit" class="btn btn-outline-danger btn-sm" value="delete_task">Delete</button>
-                            </form>
-                        </div>
+                        {% if todo.is_finished %}
+                        <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
+                            <button type="submit" class="btn btn-outline-warning btn-sm mb-1" value="complete_task">Unmark Done</button>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'todolist:complete_task' todo.id %}" method="GET">
+                            <button type="submit" class="btn btn-outline-warning btn-sm mb-1" value="complete_task">Mark Done</button>
+                        </form>
+                        {% endif %}
                         
+                        <form action="{% url 'todolist:delete_task' todo.id %}" method="GET">
+                            <button type="submit" class="btn btn-outline-danger btn-sm" value="delete_task">Delete</button>
+                        </form>
+                        
+                        <footer class="font-weight-light" style="font-size:x-small ; text-align: right;">{{ todo.date }}</footer>
                     </div>
                 </div>
             </div>

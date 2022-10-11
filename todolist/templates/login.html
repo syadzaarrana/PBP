@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/stylef.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock %}
 
 {% block meta %}
@@ -14,12 +14,12 @@
 
 <section class = "full-width d-flex justify-content-center align-items-center">
     <div class="container-fluid d-flex justify-content-center align-items-center w-75">
-        <div class="card bg-light w-75" style="border-radius: 2rem;">
+        <div class="card border-0 w-75" style="border-radius:2rem ; background-color:white ;">
             <div class="row g-0">
-                <div class="col-lg-5">
-                <img src="../static/images/login-illustration.png" class="img-fluid rounded m-4" alt="login-illustration">
+                <div class="col-lg-6 d-flex justify-content-center">
+                <img src="{% static 'images/login-illustration.png' %}" class="img-fluid rounded m-4" alt="login-illustration">
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <div class="card-body mx-3">
                         <h1 class="card-title mb-5 mt-3">Login</h1>
                         <form class="ml-3" method="POST" action="">

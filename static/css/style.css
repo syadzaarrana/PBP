@@ -6,13 +6,24 @@
 
 .full-width {
     min-height: 100vh;
-    background-color: #fef4ee;
+    background-color: #feecae;
 }
 
-.navbar {
-    background-color: #fcc8ab;
+nav {
+    background-color: #feecae;
+    height: fit-content;
+}
+
+#tasks {
+    background-color: #2b3661;
+    border-radius: 1rem;
+    transition: transform .7s;
+}
+
+#tasks:hover {
+    transform: scale(1.05);
 }
 
 body {
-    padding-top: 100px;
+    padding-top: 97px;
 }

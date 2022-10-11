@@ -56,7 +56,6 @@ def create_task(request):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            messages.success(request, 'Task added successfully!')
             return redirect('todolist:show_my_todolist')
     
     context = {'form':form}
