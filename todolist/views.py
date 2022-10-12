@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -43,10 +43,23 @@ def logout_user(request):
 @login_required(login_url='/todolist/login/')
 def show_my_todolist(request):
     my_todolist = Task.objects.filter(user=request.user).order_by('is_finished')
+    form = CreateTask()
+
+    if request.method == "POST":
+        form = CreateTask(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+    
     context = {
         'my_todolist': my_todolist,
+        'form' : form,
     }
     return render(request, "todolist.html", context)
+
+def todolist_json(request):
+    todolist = Task.objects.filter(user=request.user).order_by('is_finished')
+    return JsonResponse({'todolist' : list(todolist.values())})
 
 def create_task(request):
     form = CreateTask()

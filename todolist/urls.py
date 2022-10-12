@@ -5,6 +5,7 @@ app_name = 'todolist'
 
 urlpatterns = [
     path('', show_my_todolist, name='show_my_todolist'),
+    path('json/', todolist_json, name='todolist_json'),
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
