@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -44,12 +44,6 @@ def logout_user(request):
 def show_my_todolist(request):
     my_todolist = Task.objects.filter(user=request.user).order_by('is_finished')
     form = CreateTask()
-
-    if request.method == "POST":
-        form = CreateTask(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.save()
     
     context = {
         'my_todolist': my_todolist,
@@ -59,7 +53,20 @@ def show_my_todolist(request):
 
 def todolist_json(request):
     todolist = Task.objects.filter(user=request.user).order_by('is_finished')
-    return JsonResponse({'todolist' : list(todolist.values())})
+    return JsonResponse(list(todolist.values()), safe=False)
+
+def add_task(request):
+    if request.method == "POST":
+        user = request.user
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+
+        new_task = Task(user=user, title=title, description=description)
+        new_task.save()
+
+        return HttpResponse(b"CREATED", status=201)
+    
+    return HttpResponseNotFound()
 
 def create_task(request):
     form = CreateTask()
