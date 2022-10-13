@@ -121,6 +121,7 @@
             body: new FormData(document.querySelector('#form'))
         }).then(loadCards)
 
+        document.getElementById('#form').reset()
         console.log("works!")
 
         return false
