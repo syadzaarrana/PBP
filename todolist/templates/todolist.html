@@ -41,7 +41,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form" class="ml-3" onsubmit="return false;">
+                <form id="addform" class="ml-3" onsubmit="return false;">
                     {% csrf_token %}
                     
                     {{form|crispy}}
@@ -118,10 +118,10 @@
     function addTask() {
         fetch("{% url 'todolist:add_task' %}", {
             method: "POST",
-            body: new FormData(document.querySelector('#form'))
+            body: new FormData(document.querySelector('#addform'))
         }).then(loadCards)
 
-        document.getElementById('#form').reset()
+        document.getElementById('#addform').reset()
         console.log("works!")
 
         return false
