@@ -114,14 +114,14 @@
 
     function deleteTask(id) {
         console.log(id)
-        fetch(`http://localhost:8000/todolist/delete-task/${id}`, {
+        fetch(`https://pbp-tugas-deploy.herokuapp.com/todolist/delete-task/${id}`, {
             method: "GET",
         }).then(loadCards)
     }
 
     function completeTask(id) {
         console.log(id)
-        fetch(`http://localhost:8000/todolist/complete-task/${id}`, {
+        fetch(`https://pbp-tugas-deploy.herokuapp.com/todolist/complete-task/${id}`, {
             method: "GET",
         }).then(loadCards)
     }
