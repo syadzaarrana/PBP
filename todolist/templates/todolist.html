@@ -62,23 +62,6 @@
         $(this).find('form').trigger('reset');
     })
 
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-    const csrftoken = getCookie('csrftoken');
-
     async function loadCards() {
         var wrapper = document.getElementById('card-deck')
         wrapper.innerHTML = ''
@@ -93,7 +76,7 @@
             var todo = data
             for(var i in todo) {
                 var status = "Mark Done"
-                if(`${todo[i].is_finished}` == true) {
+                if(todo[i].is_finished) {
                     status = "Unmark Done"
                 }
 
@@ -105,8 +88,8 @@
                             <p class="card-text">${todo[i].description}</p>
 
                             <br/>
-                            <button id="update" class="btn btn-outline-warning btn-sm" value="complete_task">${status}</button>
-                            <button id="delete" class="btn btn-outline-danger btn-sm" value="delete_task">Delete</button>
+                            <button id="update" class="btn btn-outline-warning btn-sm" value="complete_task" onclick="completeTask(${todo[i].id})">${status}</button>
+                            <button id="delete" class="btn btn-outline-danger btn-sm" value="delete_task" onclick="deleteTask(${todo[i].id})">Delete</button>
                             
                             <footer class="font-weight-light" style="font-size:x-small ; text-align: right;">${todo[i].date}</footer>
                         </div>
@@ -127,6 +110,20 @@
         console.log("works!")
 
         return false
+    }
+
+    function deleteTask(id) {
+        console.log(id)
+        fetch(`http://localhost:8000/todolist/delete-task/${id}`, {
+            method: "GET",
+        }).then(loadCards)
+    }
+
+    function completeTask(id) {
+        console.log(id)
+        fetch(`http://localhost:8000/todolist/complete-task/${id}`, {
+            method: "GET",
+        }).then(loadCards)
     }
     
 </script>

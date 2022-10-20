@@ -52,7 +52,7 @@ def show_my_todolist(request):
     return render(request, "todolist.html", context)
 
 def todolist_json(request):
-    todolist = Task.objects.filter(user=request.user).order_by('is_finished')
+    todolist = Task.objects.filter(user=request.user).order_by('date').order_by('is_finished')
     return JsonResponse(list(todolist.values()), safe=False)
 
 def add_task(request):
